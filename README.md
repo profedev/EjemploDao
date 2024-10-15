@@ -54,7 +54,3 @@ Este proyecto está bajo la Licencia MIT.
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme.
-
----
-
-Este ejemplo demuestra el uso del patrón DAO en Java, enfocado en el almacenamiento en memoria. Está diseñado para proporcionar una comprensión básica de cómo separar la lógica de acceso a datos de la lógica de negocio utilizando un enfoque modular.
