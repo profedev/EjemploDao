@@ -5,7 +5,7 @@ import Modelo.Pedido;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoDAOImpl implements PedidoDAO {
+public class PedidoDAOArrayImpl implements PedidoDAO {
     private List<Pedido> pedidos = new ArrayList<>();
 
     @Override

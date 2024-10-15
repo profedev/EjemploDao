@@ -4,9 +4,9 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        ClienteDAO clienteDAO = new ClienteDAOImpl();
-        PedidoDAO pedidoDAO = new PedidoDAOImpl();
-        ProductoDAO productoDAO = new ProductoDAOImpl();
+        ClienteDAO clienteDAO = new ClienteDAOArrayImpl();
+        PedidoDAO pedidoDAO = new PedidoDAOArrayImpl();
+        ProductoDAO productoDAO = new ProductoDAOArrayImpl();
 
         // Crear clientes
         Cliente cliente1 = new Cliente(1, "Juan Perez");

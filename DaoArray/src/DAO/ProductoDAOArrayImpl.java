@@ -5,7 +5,7 @@ import Modelo.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductoDAOImpl implements ProductoDAO {
+public class ProductoDAOArrayImpl implements ProductoDAO {
     private List<Producto> productos = new ArrayList<>();
 
     @Override

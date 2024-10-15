@@ -1,0 +1,6 @@
+/DaoArray/.idea/*.xml
+/DaoArray/.idea
+/DaoArray/*.iml
+/DaoArray/out/production/DaoArray/*.class
+/DaoArray/out/production/DaoArray/DAO/*.class
+/DaoArray/out/production/DaoArray/Modelo/*.class
