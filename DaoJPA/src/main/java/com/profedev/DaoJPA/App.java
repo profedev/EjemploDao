@@ -9,25 +9,22 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pedidos_pu");
-        EntityManager em = emf.createEntityManager();
-
+     
         ClienteDAOJPAImpl cliented = new ClienteDAOJPAImpl();
         PedidoDAOJPAImpl pedidod = new PedidoDAOJPAImpl();
         ProductoDAOJPAImpl productod = new ProductoDAOJPAImpl();
         
-        cliented.setEntityManager(em);
-        pedidod.setEntityManager(em);
-        productod.setEntityManager(em);
-
-        em.getTransaction().begin();
+        DBService.beginTransaction();
 
         // Crear clientes
-        Cliente cliente1 = new Cliente("Juan Perez");
-        Cliente cliente2 = new Cliente("Maria Lopez");
+        Cliente cliente1 = new Cliente("Juan Perez","jperez@contoso.com","password1");
+        Cliente cliente2 = new Cliente("Maria Lopez","mlopez@contoso.com","password2");
         cliented.agregarCliente(cliente1);
-        cliented.agregarCliente(cliente2);
-
+        cliented.agregarCliente(cliente2);     
+        
+        System.out.println(cliented.obtenerClienteByEmail("jperez@contoso.com").password);
+        System.out.println(cliented.autenticarUsuario("mlopez@contoso.com","iii"));
+              
         // Crear productos
         Producto producto1 = new Producto("Laptop", 1500.0);
         Producto producto2 = new Producto("Mouse", 25.0);
@@ -39,7 +36,7 @@ public class App {
         pedido1.setProductos(List.of(producto1, producto2));
         pedidod.agregarPedido(pedido1);
 
-        em.getTransaction().commit();
+        DBService.commitTransaction();
 
         // Mostrar pedidos de un cliente
         List<Pedido> pedidosCliente1 = pedidod.obtenerPedidosPorCliente(cliente1.getId());
@@ -50,8 +47,8 @@ public class App {
                 System.out.println("\tProducto: " + producto.getNombre() + ", Precio: " + producto.getPrecio());
             }
         }
-
-        em.close();
-        emf.close();
+        
+        DBService.closeConnection();
+      
     }
 }
